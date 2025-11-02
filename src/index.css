@@ -28,7 +28,7 @@
 
 @layer base {
   body {
-    @apply bg-primary-dark text-white;
+    @apply bg-white text-black;
   }
 }
 

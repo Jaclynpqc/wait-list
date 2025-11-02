@@ -4,26 +4,23 @@ const FAQItem = ({ question, answer }) => {
   const [isOpen, setIsOpen] = useState(true);
 
   return (
-    <div className="flex flex-col gap-[4px] items-start w-full" data-name="FAQ's Component">
+    <div className="flex flex-col gap-[12px] md:gap-[16px] lg:gap-[20px] items-start w-full border-b border-gray-200 pb-[20px] md:pb-[25px] lg:pb-[30px]" data-name="FAQ's Component">
       <div className="flex items-center justify-between w-full gap-4" data-name="Container">
-        <p className="font-youth leading-normal not-italic text-[12px] md:text-[13px] lg:text-[14px] text-primary-light tracking-[-0.28px] flex-1">
+        <p className="font-youth leading-normal not-italic text-[18px] md:text-[22px] lg:text-[25px] text-black tracking-[-0.28px] flex-1">
           {question}
         </p>
         <button 
           onClick={() => setIsOpen(!isOpen)}
-          className="block cursor-pointer overflow-clip relative shrink-0 size-[18px] md:size-[19px] lg:size-[20px] hover:opacity-70 transition-opacity" 
+          className="block cursor-pointer relative shrink-0 w-[24px] h-[24px] md:w-[28px] md:h-[28px] hover:opacity-70 transition-opacity" 
           data-name="Toggle"
           aria-label={isOpen ? "Collapse answer" : "Expand answer"}
         >
-          <div className="absolute bottom-1/2 left-[20.83%] right-[20.83%] top-1/2">
-            <div className="absolute inset-[-1px_-8.57%]">
-              <img alt="" className="block max-w-none size-full" src="/80834627f77373ed66bc1dd31910a30b3f486d84.svg" />
-            </div>
-          </div>
+          <div className={`w-full h-[2px] bg-black absolute top-1/2 left-0 transform -translate-y-1/2 transition-transform ${isOpen ? 'rotate-0' : 'rotate-0'}`}></div>
+          <div className={`w-[2px] h-full bg-black absolute left-1/2 top-0 transform -translate-x-1/2 transition-opacity ${isOpen ? 'opacity-0' : 'opacity-100'}`}></div>
         </button>
       </div>
       {isOpen && (
-        <p className="font-inter font-light leading-normal not-italic text-[11px] md:text-[11.5px] lg:text-[12px] text-primary-light tracking-[-0.24px] w-full">
+        <p className="font-inter font-light leading-relaxed not-italic text-[14px] md:text-[16px] lg:text-[18px] text-gray-700 w-full">
           {answer}
         </p>
       )}
