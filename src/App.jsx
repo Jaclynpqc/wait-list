@@ -42,7 +42,7 @@ function App() {
   return (
     <div className="bg-[#1a1a1a] min-h-screen relative w-full overflow-x-hidden" data-name="Desktop" data-node-id="183:305">
       {/* Background Image */}
-      <div className="absolute aspect-[1280/1313] top-[-69px] left-0 mix-blend-difference opacity-70 w-full max-w-[1280px]" data-name="Adobe Express - file (2) 4" data-node-id="183:319">
+      <div className="absolute top-[-69px] lg:top-[-69px] md:top-[-5px] sm:top-0 left-0 mix-blend-difference opacity-70 w-full max-w-full lg:max-w-[1280px] md:max-w-[800px] sm:max-w-[375px]" data-name="Adobe Express - file (2) 4" data-node-id="183:319">
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <img 
             alt="" 
@@ -53,8 +53,20 @@ function App() {
       </div>
 
       {/* Watch Demo Button */}
-      <div className="absolute top-[200px] right-[479px] z-10">
-        <button className="box-border flex items-center justify-between px-[13.801px] py-[6.901px] rounded-[69.005px] w-[304px] backdrop-blur-[23.462px] bg-[rgba(149,149,149,0.25)]">
+      <div className="hidden lg:block absolute top-[200px] right-[479px] z-10">
+        <button className="box-border flex items-center justify-between px-[13.801px] py-[6.901px] rounded-[69.005px] w-[304px] backdrop-blur-[23.462px] bg-[rgba(149,149,149,0.25)] hover:bg-[rgba(149,149,149,0.35)] transition-all">
+          <div className="flex flex-col font-grotesk justify-center leading-[0] not-italic overflow-ellipsis overflow-hidden text-[24px] text-[rgba(255,255,255,0.96)] text-nowrap">
+            <p className="leading-[16.561px] overflow-ellipsis overflow-hidden whitespace-pre">Watch Demo Video</p>
+          </div>
+          <div className="relative shrink-0 size-[39px]">
+            <img alt="Play" className="absolute inset-0 max-w-none object-center object-contain pointer-events-none size-full" src="/cc4a856aea4bec874cfc811cd5d90993f7feff46.png" />
+          </div>
+        </button>
+      </div>
+
+      {/* Tablet Watch Demo Button */}
+      <div className="hidden md:block lg:hidden absolute top-[693px] left-1/2 transform -translate-x-1/2 z-10">
+        <button className="box-border flex items-center justify-between px-[13.801px] py-[6.901px] rounded-[69.005px] w-[304px] backdrop-blur-[23.462px] bg-[rgba(149,149,149,0.25)] hover:bg-[rgba(149,149,149,0.35)] transition-all">
           <div className="flex flex-col font-grotesk justify-center leading-[0] not-italic overflow-ellipsis overflow-hidden text-[24px] text-[rgba(255,255,255,0.96)] text-nowrap">
             <p className="leading-[16.561px] overflow-ellipsis overflow-hidden whitespace-pre">Watch Demo Video</p>
           </div>
@@ -65,7 +77,7 @@ function App() {
       </div>
 
       {/* Hero Section */}
-      <div className="flex flex-col gap-[10px] items-center justify-center mx-auto pt-[150px] w-[626px] relative z-10">
+      <div className="flex flex-col gap-[10px] items-center justify-center mx-auto pt-[100px] md:pt-[150px] lg:pt-[150px] px-4 md:px-8 lg:px-0 w-full max-w-[626px] lg:w-[626px] md:w-[626px] relative z-10">
         {/* Beta Badge */}
         <div className="box-border flex gap-[5.52px] items-center px-[13.801px] py-[6.901px] rounded-[69.005px] backdrop-blur-[23.462px] bg-[rgba(149,149,149,0.25)]">
           <div className="flex flex-col font-mondwest justify-center leading-[0] not-italic overflow-ellipsis overflow-hidden text-[13.801px] text-[rgba(255,255,255,0.96)] text-nowrap">
@@ -89,50 +101,62 @@ function App() {
         </div>
 
         {/* Logo */}
-        <div className="box-border flex flex-col h-[108px] items-start px-[52px] py-[26px] w-[413px]">
-          <div className="absolute flex flex-col font-youth justify-end leading-[0] not-italic text-primary-light text-[0px] text-nowrap translate-y-[82px]">
+        <div className="box-border flex flex-col h-[80px] md:h-[100px] lg:h-[108px] items-start px-[30px] md:px-[40px] lg:px-[52px] py-[15px] md:py-[20px] lg:py-[26px] w-full max-w-[300px] md:max-w-[350px] lg:max-w-[413px]">
+          <div className="absolute flex flex-col font-youth justify-end leading-[0] not-italic text-primary-light text-[0px] text-nowrap translate-y-[60px] md:translate-y-[75px] lg:translate-y-[82px]">
             <p className="leading-normal whitespace-pre">
-              <span className="text-[80px]">{`h   ld`}</span>
-              <span className="font-mondwest not-italic text-[100px]">sp</span>
-              <span className="font-mondwest not-italic text-[100px]">a</span>
-              <span className="font-mondwest not-italic text-[100px]">ce</span>
+              <span className="text-[50px] md:text-[65px] lg:text-[80px]">{`h   ld`}</span>
+              <span className="font-mondwest not-italic text-[62px] md:text-[80px] lg:text-[100px]">sp</span>
+              <span className="font-mondwest not-italic text-[62px] md:text-[80px] lg:text-[100px]">a</span>
+              <span className="font-mondwest not-italic text-[62px] md:text-[80px] lg:text-[100px]">ce</span>
             </p>
           </div>
-          <div className="h-[52.312px] relative shrink-0 w-[53px]">
+          <div className="h-[32px] md:h-[42px] lg:h-[52.312px] relative shrink-0 w-[33px] md:w-[43px] lg:w-[53px]">
             <img alt="" className="absolute inset-0 max-w-none object-center object-cover pointer-events-none size-full" src="/fcafa7b5073045f0dd38591f3c9216ec8e77ce76.png" />
           </div>
         </div>
 
         {/* Tagline */}
-        <div className="flex flex-col font-grotesk justify-end leading-normal min-w-full not-italic text-[#a6a7ab] text-[13.801px] text-center w-[min-content] mt-4">
+        <div className="flex flex-col font-grotesk justify-end leading-normal w-full not-italic text-[#a6a7ab] text-[11px] md:text-[12px] lg:text-[13.801px] text-center px-4 md:px-8 lg:px-0 mt-4">
           <p className="mb-0">{`Be among the first to experiment a new engaging online meeting. `}</p>
           <p>Holdspace keeps you visible and in control — no slides to hide behind, no screen-sharing to juggle.</p>
         </div>
 
         {/* Email Signup */}
-        <form onSubmit={handleSubmit} className="box-border flex items-center justify-between px-[13.801px] py-[6.901px] rounded-[69.005px] w-[325px] backdrop-blur-[23.462px] bg-[rgba(149,149,149,0.25)]">
+        <form onSubmit={handleSubmit} className="box-border flex items-center justify-between px-[13.801px] py-[6.901px] rounded-[69.005px] w-full max-w-[280px] md:max-w-[300px] lg:w-[325px] backdrop-blur-[23.462px] bg-[rgba(149,149,149,0.25)]">
           <input
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             placeholder="Enter your email"
-            className="flex-1 bg-transparent border-none outline-none font-mondwest text-[13.801px] text-[rgba(255,255,255,0.96)] placeholder-[rgba(255,255,255,0.96)]"
+            className="flex-1 bg-transparent border-none outline-none font-mondwest text-[11px] md:text-[12px] lg:text-[13.801px] text-[rgba(255,255,255,0.96)] placeholder-[rgba(255,255,255,0.96)]"
             required
           />
-          <button type="submit" className="bg-[#ede7e1] box-border flex h-[30.362px] items-center overflow-clip px-[13.801px] py-0 rounded-[69.005px]">
-            <div className="flex flex-col font-youth justify-center leading-[0] not-italic overflow-ellipsis overflow-hidden text-[13.801px] text-black text-nowrap">
-              <p className="leading-[15.181px] overflow-ellipsis overflow-hidden whitespace-pre">Join Waitlist</p>
+          <button type="submit" className="bg-[#ede7e1] box-border flex h-[28px] md:h-[30px] lg:h-[30.362px] items-center overflow-clip px-[10px] md:px-[12px] lg:px-[13.801px] py-0 rounded-[69.005px] hover:bg-[#ddd7d1] transition-all">
+            <div className="flex flex-col font-youth justify-center leading-[0] not-italic overflow-ellipsis overflow-hidden text-[11px] md:text-[12px] lg:text-[13.801px] text-black text-nowrap">
+              <p className="leading-[13px] md:leading-[14px] lg:leading-[15.181px] overflow-ellipsis overflow-hidden whitespace-pre">Join Waitlist</p>
             </div>
           </button>
         </form>
       </div>
 
+      {/* Mobile Watch Demo Button */}
+      <div className="md:hidden w-full px-4 mt-8 mb-8 relative z-10">
+        <button className="box-border flex items-center justify-between px-[20px] py-[10px] rounded-[69.005px] w-full backdrop-blur-[23.462px] bg-[rgba(149,149,149,0.25)] hover:bg-[rgba(149,149,149,0.35)] transition-all">
+          <div className="flex flex-col font-grotesk justify-center leading-[0] not-italic overflow-ellipsis overflow-hidden text-[18px] text-[rgba(255,255,255,0.96)] text-nowrap">
+            <p className="leading-[16.561px] overflow-ellipsis overflow-hidden whitespace-pre">Watch Demo Video</p>
+          </div>
+          <div className="relative shrink-0 size-[39px]">
+            <img alt="Play" className="absolute inset-0 max-w-none object-center object-contain pointer-events-none size-full" src="/cc4a856aea4bec874cfc811cd5d90993f7feff46.png" />
+          </div>
+        </button>
+      </div>
+
       {/* FAQ Section */}
-      <div className="flex flex-col gap-[12px] items-center mx-auto mt-[200px] w-[482px] relative z-10">
-        <div className="flex flex-col font-mondwest justify-end leading-[0] not-italic text-primary-light text-[80px] text-center w-full">
+      <div className="flex flex-col gap-[12px] items-center mx-auto mt-[100px] md:mt-[150px] lg:mt-[200px] w-full max-w-[375px] md:max-w-[482px] lg:w-[482px] px-4 md:px-0 relative z-10">
+        <div className="flex flex-col font-mondwest justify-end leading-[0] not-italic text-primary-light text-[50px] md:text-[65px] lg:text-[80px] text-center w-full">
           <p className="leading-normal">FAQ</p>
         </div>
-        <div className="box-border flex flex-col gap-[30px] items-start overflow-clip px-[22px] py-[30px] w-full" data-name="FAQ List">
+        <div className="box-border flex flex-col gap-[20px] md:gap-[25px] lg:gap-[30px] items-start overflow-clip px-[15px] md:px-[18px] lg:px-[22px] py-[20px] md:py-[25px] lg:py-[30px] w-full" data-name="FAQ List">
           {faqs.map((faq, index) => (
             <FAQItem key={index} question={faq.question} answer={faq.answer} />
           ))}
@@ -140,7 +164,7 @@ function App() {
       </div>
 
       {/* Footer */}
-      <Footer className="flex flex-col gap-[35px] items-start mx-auto mt-[100px] pb-[50px] w-[1074.83px]" />
+      <Footer className="flex flex-col gap-[20px] md:gap-[28px] lg:gap-[35px] items-start mx-auto mt-[80px] md:mt-[90px] lg:mt-[100px] pb-[30px] md:pb-[40px] lg:pb-[50px] w-full max-w-[338px] md:max-w-[776px] lg:w-[1074.83px] px-4 md:px-6 lg:px-0" />
     </div>
   );
 }

@@ -5,13 +5,13 @@ const FAQItem = ({ question, answer }) => {
 
   return (
     <div className="flex flex-col gap-[4px] items-start w-full" data-name="FAQ's Component">
-      <div className="flex items-center justify-between w-full" data-name="Container">
-        <p className="font-youth leading-normal not-italic text-[14px] text-primary-light tracking-[-0.28px] w-[352px]">
+      <div className="flex items-center justify-between w-full gap-4" data-name="Container">
+        <p className="font-youth leading-normal not-italic text-[12px] md:text-[13px] lg:text-[14px] text-primary-light tracking-[-0.28px] flex-1">
           {question}
         </p>
         <button 
           onClick={() => setIsOpen(!isOpen)}
-          className="block cursor-pointer overflow-clip relative shrink-0 size-[20px]" 
+          className="block cursor-pointer overflow-clip relative shrink-0 size-[18px] md:size-[19px] lg:size-[20px] hover:opacity-70 transition-opacity" 
           data-name="Toggle"
           aria-label={isOpen ? "Collapse answer" : "Expand answer"}
         >
@@ -23,7 +23,7 @@ const FAQItem = ({ question, answer }) => {
         </button>
       </div>
       {isOpen && (
-        <p className="font-inter font-light leading-normal not-italic text-[12px] text-primary-light tracking-[-0.24px] w-full">
+        <p className="font-inter font-light leading-normal not-italic text-[11px] md:text-[11.5px] lg:text-[12px] text-primary-light tracking-[-0.24px] w-full">
           {answer}
         </p>
       )}

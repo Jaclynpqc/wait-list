@@ -40,8 +40,13 @@ npm run preview
 
 - Hero section with email signup
 - FAQ accordion component
-- Responsive design with glassmorphism effects
+- **Fully responsive design** for Desktop, Tablet, and Mobile
+  - Desktop (≥1024px): Full layout with sidebar watch demo button
+  - Tablet (768px-1023px): Centered layout with bottom watch demo button
+  - Mobile (<768px): Stacked mobile-optimized layout
+- Glassmorphism effects with backdrop blur
 - Custom typography (Youth, PP Mondwest, FK Grotesk, Inter)
+- Interactive hover states and transitions
 - Social media links in footer
 
 ## Project Structure
