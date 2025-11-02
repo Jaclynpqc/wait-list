@@ -52,101 +52,56 @@ function App() {
         </div>
       </div>
 
-      {/* Watch Demo Button */}
-      <div className="hidden lg:block absolute top-[200px] right-[479px] z-10">
-        <button className="box-border flex items-center justify-between px-[13.801px] py-[6.901px] rounded-[69.005px] w-[304px] backdrop-blur-[23.462px] bg-[rgba(149,149,149,0.25)] hover:bg-[rgba(149,149,149,0.35)] transition-all">
-          <div className="flex flex-col font-grotesk justify-center leading-[0] not-italic overflow-ellipsis overflow-hidden text-[24px] text-[rgba(255,255,255,0.96)] text-nowrap">
-            <p className="leading-[16.561px] overflow-ellipsis overflow-hidden whitespace-pre">Watch Demo Video</p>
-          </div>
-          <div className="relative shrink-0 size-[39px]">
-            <img alt="Play" className="absolute inset-0 max-w-none object-center object-contain pointer-events-none size-full" src="/cc4a856aea4bec874cfc811cd5d90993f7feff46.png" />
-          </div>
-        </button>
-      </div>
-
-      {/* Tablet Watch Demo Button */}
-      <div className="hidden md:block lg:hidden absolute top-[693px] left-1/2 transform -translate-x-1/2 z-10">
-        <button className="box-border flex items-center justify-between px-[13.801px] py-[6.901px] rounded-[69.005px] w-[304px] backdrop-blur-[23.462px] bg-[rgba(149,149,149,0.25)] hover:bg-[rgba(149,149,149,0.35)] transition-all">
-          <div className="flex flex-col font-grotesk justify-center leading-[0] not-italic overflow-ellipsis overflow-hidden text-[24px] text-[rgba(255,255,255,0.96)] text-nowrap">
-            <p className="leading-[16.561px] overflow-ellipsis overflow-hidden whitespace-pre">Watch Demo Video</p>
-          </div>
-          <div className="relative shrink-0 size-[39px]">
-            <img alt="Play" className="absolute inset-0 max-w-none object-center object-contain pointer-events-none size-full" src="/cc4a856aea4bec874cfc811cd5d90993f7feff46.png" />
-          </div>
-        </button>
-      </div>
-
       {/* Hero Section */}
-      <div className="flex flex-col gap-[10px] items-center justify-center mx-auto pt-[100px] md:pt-[150px] lg:pt-[150px] px-4 md:px-8 lg:px-0 w-full max-w-[626px] lg:w-[626px] md:w-[626px] relative z-10">
+      <div className="flex flex-col gap-[10px] items-center justify-center mx-auto pt-[100px] md:pt-[150px] lg:pt-[150px] px-4 md:px-8 lg:px-0 w-full max-w-[626px] relative z-10">
         {/* Beta Badge */}
-        <div className="box-border flex gap-[5.52px] items-center px-[13.801px] py-[6.901px] rounded-[69.005px] backdrop-blur-[23.462px] bg-[rgba(149,149,149,0.25)]">
-          <div className="flex flex-col font-mondwest justify-center leading-[0] not-italic overflow-ellipsis overflow-hidden text-[13.801px] text-[rgba(255,255,255,0.96)] text-nowrap">
-            <p className="leading-[16.561px] overflow-ellipsis overflow-hidden whitespace-pre">beta version</p>
-          </div>
-          <div className="flex flex-col items-start">
-            <div className="box-border flex h-[30.362px] items-center overflow-clip px-[13.801px] py-0 rounded-[69.005px] bg-[rgba(255,255,255,0.07)]">
-              <div className="flex flex-col font-youth justify-center leading-[0] not-italic overflow-ellipsis overflow-hidden text-[13.801px] text-[rgba(255,255,255,0.96)] text-nowrap">
-                <p className="leading-[15.181px] overflow-ellipsis overflow-hidden whitespace-pre">November 2025</p>
-              </div>
-            </div>
+        <div className="box-border flex gap-[5.52px] items-center px-[10px] md:px-[12px] lg:px-[13.801px] py-[5px] md:py-[6px] lg:py-[6.901px] rounded-[69.005px] backdrop-blur-[23.462px] bg-[rgba(149,149,149,0.25)] flex-wrap justify-center">
+          <span className="font-mondwest text-[11px] md:text-[12px] lg:text-[13.801px] text-[rgba(255,255,255,0.96)]">beta version</span>
+          <div className="flex items-center px-[10px] md:px-[12px] lg:px-[13.801px] py-[4px] md:py-[5px] lg:py-[6px] rounded-[69.005px] bg-[rgba(255,255,255,0.07)]">
+            <span className="font-youth text-[11px] md:text-[12px] lg:text-[13.801px] text-[rgba(255,255,255,0.96)]">November 2025</span>
           </div>
           <div className="flex gap-[4.83px] items-center">
-            <div className="relative shrink-0 size-[5.52px]">
+            <div className="relative shrink-0 size-[4px] md:size-[5px] lg:size-[5.52px]">
               <img alt="" className="block max-w-none size-full" src="/6d9641c92744215b12a87942faeafb015f0b0202.svg" />
             </div>
-            <div className="flex flex-col font-grotesk justify-end leading-[0] not-italic text-accent-green text-[13.801px] text-nowrap tracking-[-0.276px]">
-              <p className="leading-normal whitespace-pre">early access</p>
-            </div>
+            <span className="font-grotesk text-accent-green text-[11px] md:text-[12px] lg:text-[13.801px] tracking-[-0.276px]">early access</span>
           </div>
         </div>
 
         {/* Logo */}
-        <div className="box-border flex flex-col h-[80px] md:h-[100px] lg:h-[108px] items-start px-[30px] md:px-[40px] lg:px-[52px] py-[15px] md:py-[20px] lg:py-[26px] w-full max-w-[300px] md:max-w-[350px] lg:max-w-[413px]">
-          <div className="absolute flex flex-col font-youth justify-end leading-[0] not-italic text-primary-light text-[0px] text-nowrap translate-y-[60px] md:translate-y-[75px] lg:translate-y-[82px]">
-            <p className="leading-normal whitespace-pre">
-              <span className="text-[50px] md:text-[65px] lg:text-[80px]">{`h   ld`}</span>
-              <span className="font-mondwest not-italic text-[62px] md:text-[80px] lg:text-[100px]">sp</span>
-              <span className="font-mondwest not-italic text-[62px] md:text-[80px] lg:text-[100px]">a</span>
-              <span className="font-mondwest not-italic text-[62px] md:text-[80px] lg:text-[100px]">ce</span>
-            </p>
-          </div>
-          <div className="h-[32px] md:h-[42px] lg:h-[52.312px] relative shrink-0 w-[33px] md:w-[43px] lg:w-[53px]">
-            <img alt="" className="absolute inset-0 max-w-none object-center object-cover pointer-events-none size-full" src="/fcafa7b5073045f0dd38591f3c9216ec8e77ce76.png" />
-          </div>
+        <div className="relative flex items-center justify-center my-4 md:my-6 lg:my-8">
+          <img 
+            alt="Holdspace Logo" 
+            className="w-[200px] h-auto md:w-[300px] lg:w-[413px]" 
+            src="/holdspace-logo.svg" 
+          />
         </div>
 
         {/* Tagline */}
-        <div className="flex flex-col font-grotesk justify-end leading-normal w-full not-italic text-[#a6a7ab] text-[11px] md:text-[12px] lg:text-[13.801px] text-center px-4 md:px-8 lg:px-0 mt-4">
-          <p className="mb-0">{`Be among the first to experiment a new engaging online meeting. `}</p>
-          <p>Holdspace keeps you visible and in control — no slides to hide behind, no screen-sharing to juggle.</p>
+        <div className="font-grotesk text-[#a6a7ab] text-[11px] md:text-[12px] lg:text-[13.801px] text-center leading-normal max-w-full px-2">
+          <p className="mb-0">Be among the first to experiment a new engaging online meeting. Holdspace keeps you visible and in control — no slides to hide behind, no screen-sharing to juggle.</p>
         </div>
 
         {/* Email Signup */}
-        <form onSubmit={handleSubmit} className="box-border flex items-center justify-between px-[13.801px] py-[6.901px] rounded-[69.005px] w-full max-w-[280px] md:max-w-[300px] lg:w-[325px] backdrop-blur-[23.462px] bg-[rgba(149,149,149,0.25)]">
+        <form onSubmit={handleSubmit} className="mt-4 box-border flex items-center justify-between px-[10px] md:px-[12px] lg:px-[13.801px] py-[5px] md:py-[6px] lg:py-[6.901px] rounded-[69.005px] w-full max-w-[280px] md:max-w-[300px] lg:max-w-[325px] backdrop-blur-[23.462px] bg-[rgba(149,149,149,0.25)]">
           <input
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             placeholder="Enter your email"
-            className="flex-1 bg-transparent border-none outline-none font-mondwest text-[11px] md:text-[12px] lg:text-[13.801px] text-[rgba(255,255,255,0.96)] placeholder-[rgba(255,255,255,0.96)]"
+            className="flex-1 bg-transparent border-none outline-none font-mondwest text-[11px] md:text-[12px] lg:text-[13.801px] text-[rgba(255,255,255,0.96)] placeholder-[rgba(255,255,255,0.6)]"
             required
           />
-          <button type="submit" className="bg-[#ede7e1] box-border flex h-[28px] md:h-[30px] lg:h-[30.362px] items-center overflow-clip px-[10px] md:px-[12px] lg:px-[13.801px] py-0 rounded-[69.005px] hover:bg-[#ddd7d1] transition-all">
-            <div className="flex flex-col font-youth justify-center leading-[0] not-italic overflow-ellipsis overflow-hidden text-[11px] md:text-[12px] lg:text-[13.801px] text-black text-nowrap">
-              <p className="leading-[13px] md:leading-[14px] lg:leading-[15.181px] overflow-ellipsis overflow-hidden whitespace-pre">Join Waitlist</p>
-            </div>
+          <button type="submit" className="bg-[#ede7e1] box-border flex h-[26px] md:h-[28px] lg:h-[30.362px] items-center justify-center px-[10px] md:px-[12px] lg:px-[13.801px] rounded-[69.005px] hover:bg-[#ddd7d1] transition-all ml-2">
+            <span className="font-youth text-[11px] md:text-[12px] lg:text-[13.801px] text-black whitespace-nowrap">Join Waitlist</span>
           </button>
         </form>
-      </div>
 
-      {/* Mobile Watch Demo Button */}
-      <div className="md:hidden w-full px-4 mt-8 mb-8 relative z-10">
-        <button className="box-border flex items-center justify-between px-[20px] py-[10px] rounded-[69.005px] w-full backdrop-blur-[23.462px] bg-[rgba(149,149,149,0.25)] hover:bg-[rgba(149,149,149,0.35)] transition-all">
-          <div className="flex flex-col font-grotesk justify-center leading-[0] not-italic overflow-ellipsis overflow-hidden text-[18px] text-[rgba(255,255,255,0.96)] text-nowrap">
-            <p className="leading-[16.561px] overflow-ellipsis overflow-hidden whitespace-pre">Watch Demo Video</p>
-          </div>
-          <div className="relative shrink-0 size-[39px]">
-            <img alt="Play" className="absolute inset-0 max-w-none object-center object-contain pointer-events-none size-full" src="/cc4a856aea4bec874cfc811cd5d90993f7feff46.png" />
+        {/* Watch Demo Button */}
+        <button className="mt-4 box-border flex items-center justify-between px-[12px] md:px-[13.801px] py-[6px] md:py-[6.901px] rounded-[69.005px] w-full max-w-[280px] md:max-w-[300px] lg:max-w-[304px] backdrop-blur-[23.462px] bg-[rgba(149,149,149,0.25)] hover:bg-[rgba(149,149,149,0.35)] transition-all">
+          <span className="font-grotesk text-[16px] md:text-[20px] lg:text-[24px] text-[rgba(255,255,255,0.96)]">Watch Demo Video</span>
+          <div className="relative shrink-0 size-[30px] md:size-[35px] lg:size-[39px]">
+            <img alt="Play" className="w-full h-full object-contain" src="/cc4a856aea4bec874cfc811cd5d90993f7feff46.png" />
           </div>
         </button>
       </div>
