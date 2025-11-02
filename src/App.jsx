@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Footer from './components/Footer';
 import FAQItem from './components/FAQItem';
+import Dither from './components/Dither';
 
 function App() {
   const [email, setEmail] = useState('');
@@ -53,7 +54,21 @@ function App() {
       </div>
 
       {/* Hero Section */}
-      <div className="flex flex-col gap-[10px] items-center justify-center mx-auto pt-[100px] md:pt-[150px] lg:pt-[150px] px-4 md:px-8 lg:px-0 w-full max-w-[626px] relative z-10">
+      <div className="flex flex-col gap-[10px] items-center justify-center mx-auto pt-[100px] md:pt-[150px] lg:pt-[150px] px-4 md:px-8 lg:px-0 w-full relative z-10">
+        {/* Interactive Dither Background */}
+        <div className="absolute inset-0 w-full h-[800px] -z-10 opacity-30">
+          <Dither
+            waveColor={[0.5, 0.5, 0.5]}
+            disableAnimation={false}
+            enableMouseInteraction={true}
+            mouseRadius={0.3}
+            colorNum={4}
+            waveAmplitude={0.3}
+            waveFrequency={3}
+            waveSpeed={0.05}
+          />
+        </div>
+        
         {/* Beta Badge */}
         <div className="box-border flex gap-[5.52px] items-center px-[10px] md:px-[12px] lg:px-[13.801px] py-[5px] md:py-[6px] lg:py-[6.901px] rounded-[69.005px] backdrop-blur-[23.462px] bg-[rgba(149,149,149,0.25)] flex-wrap justify-center">
           <span className="font-mondwest text-[11px] md:text-[12px] lg:text-[13.801px] text-[rgba(255,255,255,0.96)]">beta version</span>
@@ -98,7 +113,7 @@ function App() {
         </form>
 
         {/* Watch Demo Button */}
-        <button className="mt-4 box-border flex items-center justify-between px-[12px] md:px-[13.801px] py-[6px] md:py-[6.901px] rounded-[69.005px] w-full max-w-[280px] md:max-w-[300px] lg:max-w-[304px] backdrop-blur-[23.462px] bg-[rgba(149,149,149,0.25)] hover:bg-[rgba(149,149,149,0.35)] transition-all">
+        <button className="mt-10 box-border flex items-center justify-between px-[12px] md:px-[13.801px] py-[6px] md:py-[6.901px] rounded-[69.005px] w-full max-w-[280px] md:max-w-[300px] lg:max-w-[304px] backdrop-blur-[23.462px] bg-[rgba(149,149,149,0.25)] hover:bg-[rgba(149,149,149,0.35)] transition-all">
           <span className="font-grotesk text-[16px] md:text-[20px] lg:text-[24px] text-[rgba(255,255,255,0.96)]">Watch Demo Video</span>
           <div className="relative shrink-0 size-[30px] md:size-[35px] lg:size-[39px]">
             <img alt="Play" className="w-full h-full object-contain" src="/cc4a856aea4bec874cfc811cd5d90993f7feff46.png" />
