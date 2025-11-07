@@ -4,7 +4,7 @@
 
 @font-face {
   font-family: 'Youth';
-  src: url('https://fonts.cdnfonts.com/s/93480/Youth.woff') format('woff');
+  src: url('/fonts/Youth-Medium.woff') format('woff');
   font-weight: 500;
   font-style: normal;
   font-display: swap;
@@ -12,7 +12,8 @@
 
 @font-face {
   font-family: 'PP Mondwest';
-  src: local('PP Mondwest'), local('PPMondwest-Regular');
+  src: url('/fonts/PPMondwest-Regular.woff') format('woff'),
+       local('PP Mondwest'), local('PPMondwest-Regular');
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -20,7 +21,8 @@
 
 @font-face {
   font-family: 'FK Grotesk';
-  src: local('FK Grotesk'), local('FKGrotesk-Light');
+  src: url('/fonts/FKGrotesk-Light.woff') format('woff'),
+       local('FK Grotesk'), local('FKGrotesk-Light');
   font-weight: 300;
   font-style: normal;
   font-display: swap;
