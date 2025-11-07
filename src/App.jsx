@@ -33,25 +33,26 @@ function App() {
   const faqs = [
     {
       question: "What is Holdspace?",
-      answer: "Holdspace is a browser-based presentation overlay that lets you stay visible while your content appears beside you—no screen-sharing required"
+      answer: "Holdspace is an online presentation tool that keeps you visible while your slides and visuals appear beside you. It runs in your browser and lets you present with natural hand gestures instead of screen-sharing."
     },
     {
       question: "How does it work?",
-      answer: "Holdspace is a browser-based presentation overlay that lets you stay visible while your content appears beside you—no screen-sharing required"
+      answer: "Holdspace uses your webcam and computer vision to recognize simple hand gestures. You can move between slides, bring up visuals, and highlight key points without touching your keyboard or mouse."
     },
     {
       question: "Do I need special equipment?",
-      answer: "Holdspace is a browser-based presentation overlay that lets you stay visible while your content appears beside you—no screen-sharing required"
+      answer: "No special equipment is needed. Holdspace works with your regular webcam and internet connection. You do not need a VR headset or any external sensors."
     },
     {
       question: "Is it compatible with my platform?",
-      answer: "Holdspace is a browser-based presentation overlay that lets you stay visible while your content appears beside you—no screen-sharing required"
+      answer: "Yes. Holdspace works with Zoom, Google Meet, Microsoft Teams, and other video-conferencing platforms. You can share your Holdspace window or use it as a virtual camera so everyone sees your interactive overlay."
     },
     {
       question: "When will it be available?",
-      answer: "Holdspace is a browser-based presentation overlay that lets you stay visible while your content appears beside you—no screen-sharing required"
+      answer: "Holdspace is currently in private beta. You can join the waitlist on our website to get early access and be the first to try new features when we launch publicly later this year."
     }
   ];
+  
 
   const steps = [
     {
@@ -164,14 +165,14 @@ function App() {
 
       {/* Video Placeholder */}
       <div className="flex items-center justify-center mx-auto mt-[60px] md:mt-[100px] lg:mt-[150px] px-4 md:px-8 lg:px-10 w-full max-w-[1512px] relative z-10">
-        <div className="bg-gray-100 rounded-xl md:rounded-2xl w-full max-w-[1251px] h-[250px] sm:h-[350px] md:h-[500px] lg:h-[729px] flex items-center justify-center border border-gray-200 shadow-lg">
+        <div className="bg-gray-100 rounded-xl md:rounded-2xl w-full max-w-[800px] h-[200px] sm:h-[280px] md:h-[360px] lg:h-[450px] flex items-center justify-center border border-gray-200 shadow-lg">
           <div className="text-center">
-            <div className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 mx-auto mb-3 md:mb-4 rounded-full bg-gray-200 flex items-center justify-center">
-              <svg className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 text-gray-600" fill="currentColor" viewBox="0 0 24 24">
+            <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 mx-auto mb-2 md:mb-3 rounded-full bg-gray-200 flex items-center justify-center">
+              <svg className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 text-gray-600" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M8 5v14l11-7z"/>
               </svg>
             </div>
-            <p className="text-gray-500 font-grotesk text-sm sm:text-base md:text-lg lg:text-xl">Watch Demo Video</p>
+            <p className="text-gray-500 font-grotesk text-xs sm:text-sm md:text-base lg:text-lg">Come back in a tiny bit. We're working on it</p>
           </div>
         </div>
       </div>
