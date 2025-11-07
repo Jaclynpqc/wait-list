@@ -62,11 +62,6 @@ const Footer = ({ className }) => {
               <img alt="Instagram" className="block max-w-none size-full" src="/b88b0afd3dbc91a5cb0d297533938f45151910f9.svg" style={{ filter: 'invert(1)' }} />
             </div>
           </a>
-          <a href="#" className="inline-grid relative shrink-0 hover:opacity-70 transition-opacity">
-            <div className="relative size-[35px]">
-              <img alt="Twitter" className="block max-w-none size-full" src="/0b74dc4032ddff5011e6415c24c8510aa3411a0e.svg" style={{ filter: 'invert(1)' }} />
-            </div>
-          </a>
         </div>
         <div className="flex gap-[5px] items-end justify-center">
           <p className="font-mondwest leading-normal not-italic text-[14px] text-nowrap text-black whitespace-pre">
@@ -75,7 +70,7 @@ const Footer = ({ className }) => {
           <div className="box-border flex flex-col h-[18px] items-start px-[8.667px] py-[4.333px] relative w-[68.833px]">
             <div className="absolute flex flex-col font-youth justify-end leading-[0] left-0 not-italic text-black text-[0px] text-nowrap top-[18px] translate-y-[-100%]">
               <p className="leading-normal whitespace-pre">
-                <span className="text-[13.333px]">h ld</span>
+                <span className="text-[13.333px]">Hold</span>
                 <span className="font-mondwest not-italic text-[16.667px]">sp</span>
                 <span className="font-mondwest not-italic text-[16.667px]">a</span>
                 <span className="font-mondwest not-italic text-[16.667px]">ce</span>

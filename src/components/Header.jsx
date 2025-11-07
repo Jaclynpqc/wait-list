@@ -2,7 +2,7 @@ import React from 'react';
 
 const Header = () => {
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md border-b">
+    <header className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md ">
       <div className="max-w-[1512px] mx-auto px-4 md:px-6 lg:px-10">
         <div className="flex items-center justify-between h-[56px] sm:h-[64px] md:h-[80px] lg:h-[100px]">
           {/* Logo */}
@@ -16,20 +16,20 @@ const Header = () => {
           </div>
 
           {/* Beta Badge - Compact on mobile, full on tablet+ */}
-          <div className="flex gap-[4px] sm:gap-[5.52px] items-center px-[8px] sm:px-[10px] md:px-[13.801px] py-[4px] sm:py-[5px] md:py-[6.901px] rounded-[50px] sm:rounded-[60px] md:rounded-[69.005px] bg-gray-100 border border-gray-300 text-xs sm:text-sm">
-            <span className="font-mondwest text-[10px] sm:text-[11px] md:text-[12px] lg:text-[13.801px] text-gray-700 hidden sm:inline">
+          <div className="flex gap-[6px] sm:gap-[7px] md:gap-[8px] lg:gap-[10px] items-center px-[10px] sm:px-[12px] md:px-[16px] lg:px-[20px] py-[5px] sm:py-[6px] md:py-[8px] lg:py-[10px] rounded-[50px] sm:rounded-[60px] md:rounded-[69.005px] bg-gray-100 border border-gray-300">
+            <span className="font-mondwest text-[11px] sm:text-[12px] md:text-[14px] lg:text-[16px] text-gray-700 hidden sm:inline">
               beta version
             </span>
-            <div className="flex items-center px-[6px] sm:px-[10px] md:px-[13.801px] py-[3px] sm:py-[4px] md:py-[6px] lg:py-[7.181px] rounded-[50px] sm:rounded-[60px] md:rounded-[69.005px] bg-gray-200">
-              <span className="font-youth text-[10px] sm:text-[11px] md:text-[12px] lg:text-[13.801px] text-gray-900">
-                Dec 2025
+            <div className="flex items-center px-[8px] sm:px-[10px] md:px-[14px] lg:px-[16px] py-[4px] sm:py-[5px] md:py-[7px] lg:py-[8px] rounded-[50px] sm:rounded-[60px] md:rounded-[69.005px] bg-gray-200">
+              <span className="font-youth text-[11px] sm:text-[12px] md:text-[14px] lg:text-[16px] text-gray-900">
+                Early Access
               </span>
             </div>
-            <div className="flex gap-[3px] sm:gap-[4.83px] items-center">
-              <div className="relative shrink-0 size-[4px] sm:size-[5px] lg:size-[5.52px] rounded-full bg-green-500">
+            <div className="flex gap-[4px] sm:gap-[5px] lg:gap-[6px] items-center">
+              <div className="relative shrink-0 size-[5px] sm:size-[6px] lg:size-[7px] rounded-full bg-green-500">
               </div>
-              <span className="font-grotesk text-green-600 text-[10px] sm:text-[11px] md:text-[12px] lg:text-[13.801px] tracking-[-0.276px]">
-                early access
+              <span className="font-grotesk text-green-600 text-[11px] sm:text-[12px] md:text-[14px] lg:text-[16px] tracking-[-0.276px]">
+                coming soon
               </span>
             </div>
           </div>

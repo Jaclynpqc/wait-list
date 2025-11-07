@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 
-const FAQItem = ({ question, answer }) => {
-  const [isOpen, setIsOpen] = useState(true);
+const FAQItem = ({ question, answer, initialOpen = false }) => {
+  const [isOpen, setIsOpen] = useState(initialOpen);
 
   return (
-    <div className="flex flex-col gap-[10px] md:gap-[14px] lg:gap-[20px] items-start w-full border-b border-gray-200 pb-[16px] md:pb-[20px] lg:pb-[30px]" data-name="FAQ's Component">
+    <div className="flex flex-col items-start w-full border-b border-gray-200 pb-[16px] md:pb-[20px] lg:pb-[30px]" data-name="FAQ's Component">
       <div className="flex items-center justify-between w-full gap-3 md:gap-4" data-name="Container">
         <p className="font-youth leading-snug not-italic text-[16px] sm:text-[18px] md:text-[20px] lg:text-[25px] text-black tracking-[-0.28px] flex-1">
           {question}
@@ -16,14 +16,18 @@ const FAQItem = ({ question, answer }) => {
           aria-label={isOpen ? "Collapse answer" : "Expand answer"}
         >
           <div className={`w-full h-[2px] bg-black absolute top-1/2 left-0 transform -translate-y-1/2 transition-transform ${isOpen ? 'rotate-0' : 'rotate-0'}`}></div>
-          <div className={`w-[2px] h-full bg-black absolute left-1/2 top-0 transform -translate-x-1/2 transition-opacity ${isOpen ? 'opacity-0' : 'opacity-100'}`}></div>
+          <div className={`w-[2px] h-full bg-black absolute left-1/2 top-0 transform -translate-x-1/2 transition-all duration-300 ${isOpen ? 'opacity-0 rotate-90' : 'opacity-100 rotate-0'}`}></div>
         </button>
       </div>
-      {isOpen && (
+      <div 
+        className={`overflow-hidden transition-all duration-500 ease-in-out ${
+          isOpen ? 'max-h-[500px] opacity-100 mt-[10px] md:mt-[14px] lg:mt-[20px]' : 'max-h-0 opacity-0 mt-0'
+        }`}
+      >
         <p className="font-inter font-light leading-relaxed not-italic text-[13px] sm:text-[14px] md:text-[16px] lg:text-[18px] text-gray-700 w-full pr-6 md:pr-8">
           {answer}
         </p>
-      )}
+      </div>
     </div>
   );
 };

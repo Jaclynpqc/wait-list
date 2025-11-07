@@ -86,6 +86,26 @@ function App() {
 
       {/* Header */}
       <Header />
+
+      {/* Image Background with Fade */}
+      <div className="absolute top-0 left-0 w-full h-[800px] sm:h-[900px] md:h-[1100px] lg:h-[1300px] overflow-hidden z-0">
+        {/* Background Image */}
+        <img
+          src="/hero_image2.jpg"
+          alt=""
+          className="absolute top-0 left-0 w-full h-full object-cover"
+          style={{ 
+            filter: 'invert(1) contrast(100%) grayscale(1)',
+            imageRendering: 'pixelated'
+          }}
+        />
+        
+        {/* Gradient Fade Overlay at Bottom */}
+        <div className="absolute bottom-0 left-0 w-full h-[30%] bg-gradient-to-b from-transparent to-white pointer-events-none"></div>
+        
+        {/* Optional: Subtle overlay to reduce image intensity */}
+        <div className="absolute inset-0 bg-white/20 pointer-events-none"></div>
+      </div>
     
       {/* Hero Section */}
       <div className="flex flex-col gap-[24px] md:gap-[30px] lg:gap-[34px] items-center justify-center mx-auto pt-[100px] md:pt-[140px] lg:pt-[200px] px-4 md:px-8 lg:px-10 w-full max-w-[1512px] relative z-10">
@@ -189,7 +209,12 @@ function App() {
         {/* FAQ List */}
         <div className="flex flex-col gap-[16px] md:gap-[20px] lg:gap-[24px] w-full">
           {faqs.map((faq, index) => (
-            <FAQItem key={index} question={faq.question} answer={faq.answer} />
+            <FAQItem 
+              key={index} 
+              question={faq.question} 
+              answer={faq.answer}
+              initialOpen={index === 0}
+            />
           ))}
         </div>
       </div>
