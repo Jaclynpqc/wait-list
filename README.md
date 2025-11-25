@@ -1,6 +1,6 @@
 # Holdspace Waitlist
 
-A modern, responsive waitlist landing page for Holdspace - a browser-based presentation overlay.
+A modern, responsive waitlist landing page for Holdspace - a browser-based presentation tool.
 
 ## Tech Stack
 
