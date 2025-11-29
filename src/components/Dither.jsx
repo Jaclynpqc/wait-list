@@ -277,7 +277,7 @@ function DitheredWaves({
       const dist = mouseRef.current.distanceTo(lastMousePos.current);
       const timeSinceLastTrail = currentTime - lastTrailTime.current;
       
-      if (dist > 5 && timeSinceLastTrail > 0.016) { // Add point every ~16ms if moved
+      if (dist > 5 && timeSinceLastTrail > 0.016) {
         const idx = trailIndexRef.current % TRAIL_LENGTH;
         trailRef.current[idx].copy(mouseRef.current);
         trailAgesRef.current[idx] = 1.0;
@@ -286,8 +286,7 @@ function DitheredWaves({
         lastTrailTime.current = currentTime;
       }
       
-      // Decay all trail ages
-      const decayRate = 0.02; // How fast trail fades
+      const decayRate = 0.02;
       for (let i = 0; i < TRAIL_LENGTH; i++) {
         if (trailAgesRef.current[i] > 0) {
           trailAgesRef.current[i] = Math.max(0, trailAgesRef.current[i] - decayRate);

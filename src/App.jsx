@@ -217,7 +217,7 @@ function App() {
         </div>
 
         {/* FAQ List */}
-        <div className="flex flex-col gap-[16px] md:gap-[20px] lg:gap-[24px] w-full">
+        <div className="flex flex-col gap-[16px] md:gap-[20px] lg:gap-[24px] w-full pb-[200px]">
           {faqs.map((faq, index) => (
             <FAQItem 
               key={index} 
