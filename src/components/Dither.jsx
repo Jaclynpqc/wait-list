@@ -5,7 +5,6 @@ import { EffectComposer, wrapEffect } from '@react-three/postprocessing';
 import { Effect } from 'postprocessing';
 import * as THREE from 'three';
 
-// Reduced trail length for performance (was 32)
 const TRAIL_LENGTH = 12;
 
 const waveVertexShader = `
@@ -17,7 +16,6 @@ void main() {
 }
 `;
 
-// Optimized fragment shader - reduced octaves from 4 to 2, simplified math
 const waveFragmentShader = `
 precision mediump float;
 uniform vec2 resolution;
@@ -32,7 +30,6 @@ uniform float mouseRadius;
 uniform vec2 mouseTrail[12];
 uniform float trailAges[12];
 
-// Simplified noise function
 float hash(vec2 p) {
   return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453);
 }
@@ -48,7 +45,6 @@ float noise(vec2 p) {
   );
 }
 
-// Reduced to 2 octaves (was 4)
 float fbm(vec2 p) {
   float value = 0.0;
   float amp = 0.5;
@@ -72,7 +68,6 @@ void main() {
   if (enableMouseInteraction == 1) {
     float totalEffect = 0.0;
     
-    // Reduced loop iterations (12 instead of 32)
     for (int i = 0; i < 12; i++) {
       float age = trailAges[i];
       if (age > 0.01) {
@@ -93,13 +88,11 @@ void main() {
 }
 `;
 
-// Simplified dither shader
 const ditherFragmentShader = `
 precision mediump float;
 uniform float colorNum;
 uniform float pixelSize;
 
-// Simplified 4x4 Bayer matrix (was 8x8)
 float bayer4(vec2 p) {
   vec2 i = floor(mod(p, 4.0));
   float b = mod(i.x + i.y * 2.0, 4.0);
@@ -157,7 +150,6 @@ function DitheredWaves({
   const mouseRef = useRef(new THREE.Vector2());
   const { viewport, size, gl } = useThree();
   
-  // Trail tracking with reduced size
   const trailRef = useRef(Array(TRAIL_LENGTH).fill(null).map(() => new THREE.Vector2(-9999, -9999)));
   const trailAgesRef = useRef(Array(TRAIL_LENGTH).fill(0));
   const lastMousePos = useRef(new THREE.Vector2(-9999, -9999));
@@ -181,22 +173,21 @@ function DitheredWaves({
 
   useEffect(() => {
     const dpr = gl.getPixelRatio();
-    const w = Math.floor(size.width * dpr),
-      h = Math.floor(size.height * dpr);
+    const w = Math.floor(size.width * dpr);
+    const h = Math.floor(size.height * dpr);
     const res = waveUniformsRef.current.resolution.value;
     if (res.x !== w || res.y !== h) {
       res.set(w, h);
     }
   }, [size, gl]);
 
-  // Throttled mouse tracking
   useEffect(() => {
     if (!enableMouseInteraction) return;
     
     let lastUpdate = 0;
     const handleGlobalMouseMove = (e) => {
       const now = performance.now();
-      if (now - lastUpdate < 16) return; // Throttle to ~60fps
+      if (now - lastUpdate < 16) return;
       lastUpdate = now;
       
       const rect = gl.domElement.getBoundingClientRect();
@@ -218,12 +209,10 @@ function DitheredWaves({
     const currentTime = clock.getElapsedTime();
     frameCount.current++;
 
-    // Update time for animation
     if (!disableAnimation) {
       u.time.value = currentTime;
     }
 
-    // Only update other uniforms every 2 frames
     if (frameCount.current % 2 === 0) {
       if (u.waveSpeed.value !== waveSpeed) u.waveSpeed.value = waveSpeed;
       if (u.waveFrequency.value !== waveFrequency) u.waveFrequency.value = waveFrequency;
@@ -241,11 +230,10 @@ function DitheredWaves({
     if (enableMouseInteraction) {
       u.mousePos.value.copy(mouseRef.current);
       
-      // Add new trail point if mouse moved enough (throttled)
       const dist = mouseRef.current.distanceTo(lastMousePos.current);
       const timeSinceLastTrail = currentTime - lastTrailTime.current;
       
-      if (dist > 8 && timeSinceLastTrail > 0.033) { // ~30fps trail updates
+      if (dist > 8 && timeSinceLastTrail > 0.033) {
         const idx = trailIndexRef.current % TRAIL_LENGTH;
         trailRef.current[idx].copy(mouseRef.current);
         trailAgesRef.current[idx] = 1.0;
@@ -254,7 +242,6 @@ function DitheredWaves({
         lastTrailTime.current = currentTime;
       }
       
-      // Faster decay for shorter trail
       const decayRate = 0.04;
       for (let i = 0; i < TRAIL_LENGTH; i++) {
         if (trailAgesRef.current[i] > 0) {
@@ -285,7 +272,6 @@ function DitheredWaves({
   );
 }
 
-// Check if device is mobile or prefers reduced motion
 function useOptimizedSettings() {
   const [settings, setSettings] = useState({
     isMobile: false,
@@ -317,14 +303,12 @@ export default function Dither({
 }) {
   const { isMobile, prefersReducedMotion, isLowPower } = useOptimizedSettings();
   
-  // On mobile or reduced motion: show static gradient fallback
   if (isMobile || prefersReducedMotion) {
     return (
       <div className="w-full h-full bg-gradient-to-br from-gray-100 via-gray-200 to-gray-100" />
     );
   }
 
-  // Adjust settings for low-power devices
   const adjustedProps = useMemo(() => ({
     waveSpeed: isLowPower ? waveSpeed * 0.5 : waveSpeed,
     waveFrequency,
