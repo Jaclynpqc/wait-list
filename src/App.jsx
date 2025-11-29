@@ -97,7 +97,7 @@ function App() {
               waveColor={[0.5, 0.5, 0.5]}
               disableAnimation={false}
               enableMouseInteraction={true}
-              mouseRadius={0.03}
+              mouseRadius={0.06}
               colorNum={4}
               waveAmplitude={0.3}
               waveFrequency={3}
@@ -113,7 +113,7 @@ function App() {
       <Header />
     
       {/* Hero Section */}
-      <div className="flex flex-col gap-[24px] md:gap-[30px] lg:gap-[34px] items-center justify-center mx-auto pt-[100px] md:pt-[140px] lg:pt-[200px] px-4 md:px-8 lg:px-10 w-full max-w-[1512px] relative z-10">
+      <div className="flex flex-col gap-[24px] md:gap-[30px] lg:gap-[34px] items-center justify-center mx-auto pt-[200px] md:pt-[140px] lg:pt-[200px] px-4 md:px-8 lg:px-10 w-full max-w-[1512px] relative z-10 pb-[100px] md:pb-0">
         {/* Hero Content */}
         <div className="flex flex-col gap-[16px] md:gap-[24px] lg:gap-[30px] items-center justify-center w-full max-w-[889px]">
           {/* Headline */}
@@ -168,7 +168,7 @@ function App() {
       </div>
 
       {/* Video Placeholder */}
-      <div className="flex items-center justify-center mx-auto mt-[60px] md:mt-[100px] lg:mt-[150px] px-4 md:px-8 lg:px-10 w-full max-w-[1512px] relative z-10">
+      <div className="flex items-center justify-center mx-auto mt-[60px] md:mt-[100px] lg:mt-[150px] pb-[100px] md:pb-0 px-4 md:px-8 lg:px-10 w-full max-w-[1512px] relative z-10">
         <div className="bg-gray-100 rounded-xl md:rounded-2xl w-full max-w-[800px] h-[200px] sm:h-[280px] md:h-[360px] lg:h-[450px] flex items-center justify-center border border-gray-200 shadow-lg">
           <div className="text-center">
             <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 mx-auto mb-2 md:mb-3 rounded-full bg-gray-200 flex items-center justify-center">
