@@ -10,19 +10,26 @@ const StepsSection = () => {
         </h2>
       </div>
 
-      <div className="flex flex-col gap-[12px] sm:gap-[16px] md:gap-[20px] lg:gap-[21px] w-full lg:max-w-[586px]">
+      <div className="flex flex-col gap-4 sm:gap-5 md:gap-6 w-full lg:max-w-[586px]">
         {STEPS.map((step, index) => (
           <div 
             key={index} 
-            className="box-border flex items-center justify-between gap-3 md:gap-4 px-[12px] sm:px-[15px] md:px-[18px] lg:px-[20.676px] py-[10px] sm:py-[12px] md:py-[16px] lg:py-[20.581px] rounded-[60px] sm:rounded-[80px] lg:rounded-[103.38px] bg-gray-100 border border-gray-200"
+            className="group box-border flex items-center justify-between gap-4 md:gap-5 px-5 sm:px-6 md:px-7 py-4 sm:py-5 md:py-6 rounded-2xl bg-white/80 backdrop-blur-sm border-2 border-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-3px] hover:translate-y-[-3px] transition-all duration-200 cursor-default"
           >
-            <span className="font-mondwest text-[13px] sm:text-[15px] md:text-[18px] lg:text-[25px] text-black flex-1 leading-tight text-embossed">
-              {step.title}
-            </span>
-            <div className="bg-black box-border flex h-[36px] sm:h-[40px] md:h-[44px] lg:h-[45.487px] w-[40px] sm:w-[45px] md:w-[55px] lg:w-[65px] items-center justify-center rounded-full flex-shrink-0">
-              <span className="font-youth text-[15px] sm:text-[17px] md:text-[19px] lg:text-[21px] leading-[22.744px] text-white">
-                {step.number}
+            <div className="flex items-center gap-4">
+              <div className="bg-black box-border flex h-[44px] sm:h-[48px] md:h-[52px] w-[44px] sm:w-[48px] md:w-[52px] items-center justify-center rounded-xl flex-shrink-0 group-hover:rotate-3 transition-transform duration-200">
+                <span className="font-youth text-[16px] sm:text-[18px] md:text-[20px] text-white">
+                  {step.number}
+                </span>
+              </div>
+              <span className="font-grotesk font-medium text-[14px] sm:text-[16px] md:text-[18px] lg:text-[20px] text-black leading-snug">
+                {step.title}
               </span>
+            </div>
+            <div className="hidden sm:flex items-center justify-center w-8 h-8 rounded-full bg-gray-100 group-hover:bg-black group-hover:text-white transition-colors duration-200">
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
             </div>
           </div>
         ))}

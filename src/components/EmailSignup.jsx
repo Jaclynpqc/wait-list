@@ -29,24 +29,24 @@ const EmailSignup = () => {
     <div className="w-full flex flex-col items-center gap-3">
       <form 
         onSubmit={handleSubmit} 
-        className="box-border flex items-center justify-between gap-2 px-[12px] sm:px-[15px] md:px-[18px] lg:px-[20.676px] py-[7px] sm:py-[8px] md:py-[9px] lg:py-[10.338px] rounded-[60px] sm:rounded-[80px] lg:rounded-[103.38px] w-full max-w-[95%] sm:max-w-[450px] md:max-w-[520px] lg:max-w-[586px] bg-gray-100 border border-gray-300"
+        className="group box-border flex items-center justify-between gap-3 px-2 sm:px-3 py-2 rounded-2xl w-full max-w-[95%] sm:max-w-[450px] md:max-w-[520px] lg:max-w-[560px] bg-white/80 backdrop-blur-sm border-2 border-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:shadow-[5px_5px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all duration-200"
       >
         <input
           type="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           placeholder="Enter your email"
-          className="flex-1 bg-transparent border-none outline-none font-mondwest text-[20px] sm:text-[14px] md:text-[16px] lg:text-[18px] leading-tight md:leading-[24.811px] text-black placeholder-gray-500"
+          className="flex-1 bg-transparent border-none outline-none font-grotesk text-[14px] sm:text-[15px] md:text-[16px] lg:text-[17px] leading-tight text-black placeholder-gray-400 px-3 py-2"
           required
           disabled={isSubmitting}
         />
         <button 
           type="submit" 
           disabled={isSubmitting}
-          className="bg-black box-border flex h-[34px] sm:h-[38px] md:h-[42px] lg:h-[45.487px] items-center justify-center px-[12px] sm:px-[14px] md:px-[18px] lg:px-[20.676px] rounded-[60px] sm:rounded-[80px] lg:rounded-[103.38px] hover:bg-gray-800 transition-all whitespace-nowrap disabled:opacity-50 disabled:cursor-not-allowed"
+          className="bg-black box-border flex h-[40px] sm:h-[44px] md:h-[48px] items-center justify-center px-5 sm:px-6 md:px-8 rounded-xl hover:bg-gray-900 active:scale-95 transition-all whitespace-nowrap disabled:opacity-50 disabled:cursor-not-allowed"
         >
-          <span className="font-youth text-[13px] sm:text-[15px] md:text-[18px] lg:text-[21px] leading-tight md:leading-[22.744px] text-white">
-            {isSubmitting ? 'Submitting...' : 'Join Waitlist'}
+          <span className="font-youth text-[13px] sm:text-[14px] md:text-[16px] text-white">
+            {isSubmitting ? 'Joining...' : 'Join Waitlist'}
           </span>
         </button>
       </form>
