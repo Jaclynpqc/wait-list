@@ -9,8 +9,12 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@react-three/fiber": "8.15.12",
+    "@react-three/postprocessing": "2.15.12",
+    "postprocessing": "6.35.2",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react-dom": "^18.3.1",
+    "three": "0.160.0"
   },
   "devDependencies": {
     "@types/react": "^18.3.3",

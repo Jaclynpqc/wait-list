@@ -17,6 +17,10 @@ dist-ssr
 .env.local
 .env.production
 
+# Sensitive setup docs
+GOOGLE_SHEETS_SETUP.md
+google-apps-script.js
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

@@ -25,7 +25,7 @@ const Footer = ({ className }) => {
           </a>
         </div>
         <div className="flex gap-[5px] items-end" data-node-id="168:360">
-          <p className="font-mondwest leading-normal not-italic text-[14px] lg:text-[16px] text-nowrap text-black whitespace-pre">
+          <p className="font-mondwest leading-normal not-italic text-[14px] lg:text-[16px] text-nowrap text-black whitespace-pre text-embossed">
             A product of{" "}
           </p>
           <div className="box-border flex flex-col h-[16px] lg:h-[18px] items-start px-[7px] lg:px-[8.667px] py-[3.5px] lg:py-[4.333px] relative w-[60px] lg:w-[68.833px]" data-name="logo" data-node-id="168:355">
@@ -43,7 +43,7 @@ const Footer = ({ className }) => {
           </div>
         </div>
         <div className="inline-grid relative" data-node-id="168:325">
-          <p className="font-mondwest leading-normal not-italic text-[14px] lg:text-[16px] text-nowrap text-black whitespace-pre">
+          <p className="font-mondwest leading-normal not-italic text-[14px] lg:text-[16px] text-nowrap text-black whitespace-pre text-embossed">
             © 2025 Holdspace. All rights reserved
           </p>
         </div>
@@ -64,7 +64,7 @@ const Footer = ({ className }) => {
           </a>
         </div>
         <div className="flex gap-[5px] items-end justify-center">
-          <p className="font-mondwest leading-normal not-italic text-[14px] text-nowrap text-black whitespace-pre">
+          <p className="font-mondwest leading-normal not-italic text-[14px] text-nowrap text-black whitespace-pre text-embossed">
             A product of{" "}
           </p>
           <div className="box-border flex flex-col h-[18px] items-start px-[8.667px] py-[4.333px] relative w-[68.833px]">
@@ -82,7 +82,7 @@ const Footer = ({ className }) => {
           </div>
         </div>
         <div className="inline-grid relative text-center">
-          <p className="font-mondwest leading-normal not-italic text-[12px] text-black">
+          <p className="font-mondwest leading-normal not-italic text-[12px] text-black text-embossed">
             © 2025 Holdspace. All rights reserved
           </p>
         </div>

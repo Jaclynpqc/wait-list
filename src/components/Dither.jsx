@@ -16,6 +16,8 @@ void main() {
 }
 `;
 
+const TRAIL_LENGTH = 32;
+
 const waveFragmentShader = `
 precision highp float;
 uniform vec2 resolution;
@@ -27,6 +29,8 @@ uniform vec3 waveColor;
 uniform vec2 mousePos;
 uniform int enableMouseInteraction;
 uniform float mouseRadius;
+uniform vec2 mouseTrail[32];
+uniform float trailAges[32];
 
 vec4 mod289(vec4 x) { return x - floor(x * (1.0/289.0)) * 289.0; }
 vec4 permute(vec4 x) { return mod289(((x * 34.0) + 1.0) * x); }
@@ -84,14 +88,33 @@ void main() {
   uv -= 0.5;
   uv.x *= resolution.x / resolution.y;
   float f = pattern(uv);
+  vec3 col = mix(vec3(1.0), vec3(1.0) - waveColor, f);
+  
   if (enableMouseInteraction == 1) {
-    vec2 mouseNDC = (mousePos / resolution - 0.5) * vec2(1.0, -1.0);
-    mouseNDC.x *= resolution.x / resolution.y;
-    float dist = length(uv - mouseNDC);
-    float effect = 1.0 - smoothstep(0.0, mouseRadius, dist);
-    f -= 0.5 * effect;
+    float totalEffect = 0.0;
+    
+    // Loop through trail points
+    for (int i = 0; i < 32; i++) {
+      vec2 trailPos = mouseTrail[i];
+      float age = trailAges[i];
+      
+      if (age > 0.0) {
+        vec2 trailNDC = (trailPos / resolution - 0.5) * vec2(1.0, -1.0);
+        trailNDC.x *= resolution.x / resolution.y;
+        float dist = length(uv - trailNDC);
+        
+        // Fade based on age (newer = stronger, older = weaker)
+        float ageFade = age;
+        // Smaller radius for trail points, slightly larger for recent ones
+        float trailRadius = mouseRadius * (0.5 + 0.5 * age);
+        float effect = (1.0 - smoothstep(0.0, trailRadius, dist)) * ageFade;
+        totalEffect = max(totalEffect, effect);
+      }
+    }
+    
+    col = mix(col, vec3(0.0), totalEffect);
   }
-  vec3 col = mix(vec3(0.0), waveColor, f);
+  
   gl_FragColor = vec4(col, 1.0);
 }
 `;
@@ -177,6 +200,13 @@ function DitheredWaves({
   const mesh = useRef(null);
   const mouseRef = useRef(new THREE.Vector2());
   const { viewport, size, gl } = useThree();
+  
+  // Trail tracking
+  const trailRef = useRef(Array(TRAIL_LENGTH).fill(null).map(() => new THREE.Vector2(-9999, -9999)));
+  const trailAgesRef = useRef(Array(TRAIL_LENGTH).fill(0));
+  const lastMousePos = useRef(new THREE.Vector2(-9999, -9999));
+  const trailIndexRef = useRef(0);
+  const lastTrailTime = useRef(0);
 
   const waveUniformsRef = useRef({
     time: new THREE.Uniform(0),
@@ -187,7 +217,9 @@ function DitheredWaves({
     waveColor: new THREE.Uniform(new THREE.Color(...waveColor)),
     mousePos: new THREE.Uniform(new THREE.Vector2(0, 0)),
     enableMouseInteraction: new THREE.Uniform(enableMouseInteraction ? 1 : 0),
-    mouseRadius: new THREE.Uniform(mouseRadius)
+    mouseRadius: new THREE.Uniform(mouseRadius),
+    mouseTrail: new THREE.Uniform(Array(TRAIL_LENGTH).fill(null).map(() => new THREE.Vector2(-9999, -9999))),
+    trailAges: new THREE.Uniform(Array(TRAIL_LENGTH).fill(0))
   });
 
   useEffect(() => {
@@ -200,12 +232,30 @@ function DitheredWaves({
     }
   }, [size, gl]);
 
+  // Global mouse tracking so cursor works across entire page
+  useEffect(() => {
+    if (!enableMouseInteraction) return;
+    
+    const handleGlobalMouseMove = (e) => {
+      const rect = gl.domElement.getBoundingClientRect();
+      const dpr = gl.getPixelRatio();
+      mouseRef.current.set(
+        (e.clientX - rect.left) * dpr,
+        (e.clientY - rect.top) * dpr
+      );
+    };
+    
+    window.addEventListener('mousemove', handleGlobalMouseMove);
+    return () => window.removeEventListener('mousemove', handleGlobalMouseMove);
+  }, [enableMouseInteraction, gl]);
+
   const prevColor = useRef([...waveColor]);
   useFrame(({ clock }) => {
     const u = waveUniformsRef.current;
+    const currentTime = clock.getElapsedTime();
 
     if (!disableAnimation) {
-      u.time.value = clock.getElapsedTime();
+      u.time.value = currentTime;
     }
 
     if (u.waveSpeed.value !== waveSpeed) u.waveSpeed.value = waveSpeed;
@@ -222,15 +272,33 @@ function DitheredWaves({
 
     if (enableMouseInteraction) {
       u.mousePos.value.copy(mouseRef.current);
+      
+      // Add new trail point if mouse moved enough
+      const dist = mouseRef.current.distanceTo(lastMousePos.current);
+      const timeSinceLastTrail = currentTime - lastTrailTime.current;
+      
+      if (dist > 5 && timeSinceLastTrail > 0.016) { // Add point every ~16ms if moved
+        const idx = trailIndexRef.current % TRAIL_LENGTH;
+        trailRef.current[idx].copy(mouseRef.current);
+        trailAgesRef.current[idx] = 1.0;
+        trailIndexRef.current++;
+        lastMousePos.current.copy(mouseRef.current);
+        lastTrailTime.current = currentTime;
+      }
+      
+      // Decay all trail ages
+      const decayRate = 0.02; // How fast trail fades
+      for (let i = 0; i < TRAIL_LENGTH; i++) {
+        if (trailAgesRef.current[i] > 0) {
+          trailAgesRef.current[i] = Math.max(0, trailAgesRef.current[i] - decayRate);
+        }
+      }
+      
+      // Update uniforms
+      u.mouseTrail.value = trailRef.current;
+      u.trailAges.value = trailAgesRef.current;
     }
   });
-
-  const handlePointerMove = e => {
-    if (!enableMouseInteraction) return;
-    const rect = gl.domElement.getBoundingClientRect();
-    const dpr = gl.getPixelRatio();
-    mouseRef.current.set((e.clientX - rect.left) * dpr, (e.clientY - rect.top) * dpr);
-  };
 
   return (
     <>
@@ -247,15 +315,6 @@ function DitheredWaves({
         <RetroEffect colorNum={colorNum} pixelSize={pixelSize} />
       </EffectComposer>
 
-      <mesh
-        onPointerMove={handlePointerMove}
-        position={[0, 0, 0.01]}
-        scale={[viewport.width, viewport.height, 1]}
-        visible={false}
-      >
-        <planeGeometry args={[1, 1]} />
-        <meshBasicMaterial transparent opacity={0} />
-      </mesh>
     </>
   );
 }
@@ -269,7 +328,7 @@ export default function Dither({
   pixelSize = 2,
   disableAnimation = false,
   enableMouseInteraction = true,
-  mouseRadius = 1
+  mouseRadius = 0.1
 }) {
   return (
     <Canvas
